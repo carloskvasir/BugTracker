@@ -20,9 +20,9 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  const {name, email} = req.body;
+  const { name, email, issueType, howToReproduce, expectedOutput } = req.body;
 
-  if( !name || !email){
+  if (!name || !email) {
     return res.status(401).send("Faltando dados...")
   }
 
@@ -33,12 +33,14 @@ app.post('/', (req, res) => {
     } else {
       console.log('Planilha aberta.')
       doc.getInfo((err, info) => {
-        const worksheet = info.worksheets[ worksheetIndex ]
-        worksheet.addRow({ name, email }, (err) => {
-          if (!err) {
-            return res.send('Bug reportado com sucesso.')
-          }
-        })
+        const worksheet = info.worksheets[worksheetIndex]
+        worksheet.addRow(
+          { name, email, issueType, howToReproduce, expectedOutput },
+          (err) => {
+            if (!err) {
+              return res.send('Bug reportado com sucesso.')
+            }
+          })
       })
     }
   })
