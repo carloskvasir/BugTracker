@@ -22,7 +22,15 @@ app.get('/', (req, res) => {
 
 app.post('/', async (req, res) => {
   try {
-    const { name, email, issueType, howToReproduce, expectedOutput } = req.body;
+    const {
+      name,
+      email,
+      issueType,
+      howToReproduce,
+      expectedOutput,
+      userAgent,
+      timeNow
+    } = req.body;
 
     const doc = new GoogleSpreadSheet(docId)
     promisify(doc.useServiceAccountAuth)(credentials)
@@ -35,6 +43,8 @@ app.post('/', async (req, res) => {
       issueType,
       howToReproduce,
       expectedOutput,
+      userAgent,
+      timeNow,
     })
     return res.send('Bug reportado com sucesso.')
   } catch (err) {
