@@ -2,6 +2,14 @@
 
 <head>
   <title>BugTracker</title>
+  <script>
+    document.onreadystatechange = () => {
+      if(document.readyState === 'interactive') {
+        document.getElementById('userAgent').value = window.navigator.userAgent
+        document.getElementById('timeNow').value = new Date()
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -23,6 +31,9 @@
     <label for="expectedOutput">A saída esperada?</label>
     <input type="text" id="expectedOutput" name="expectedOutput"/>
     
+    <input type="hidden" id="userAgent" name="userAgent"/>
+    <input type="hidden" id="timeNow" name="timeNow"/>
+
     <button>Enviar solicitação</button>
   </form>
 </body>
