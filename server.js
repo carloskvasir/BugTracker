@@ -1,6 +1,7 @@
 const express = require('express')
 const GoogleSpreadSheet = require('google-spreadsheet')
 const path = require('path')
+const { promisify } = require('util')
 
 const credentials = require('./config/google_api.json')
 const app = express()
@@ -19,30 +20,27 @@ app.get('/', (req, res) => {
   res.render('home')
 })
 
-app.post('/', (req, res) => {
-  const { name, email, issueType, howToReproduce, expectedOutput } = req.body;
+app.post('/', async (req, res) => {
+  try {
+    const { name, email, issueType, howToReproduce, expectedOutput } = req.body;
 
-  if (!name || !email) {
-    return res.status(401).send("Faltando dados...")
+    const doc = new GoogleSpreadSheet(docId)
+    promisify(doc.useServiceAccountAuth)(credentials)
+    console.log('Planilha aberta.')
+    const info = await promisify(doc.getInfo)()
+    const worksheet = info.worksheets[worksheetIndex]
+    await promisify(worksheet.addRow)({
+      name,
+      email,
+      issueType,
+      howToReproduce,
+      expectedOutput,
+    })
+    return res.send('Bug reportado com sucesso.')
+  } catch (err) {
+    response.send('Erro ao enviar formulário.')
+    console.log(err)
   }
-
-  const doc = new GoogleSpreadSheet(docId)
-  doc.useServiceAccountAuth(credentials, (err) => {
-    if (err) {
-      console.log('Não foi possivel abrir a planilha.')
-    } else {
-      console.log('Planilha aberta.')
-      doc.getInfo((err, info) => {
-        const worksheet = info.worksheets[worksheetIndex]
-        worksheet.addRow(
-          { name, email, issueType, howToReproduce, expectedOutput },
-          (err) => {
-            if (!err) {
-              return res.send('Bug reportado com sucesso.')
-            }
-          })
-      })
-    }
-  })
 })
+
 app.listen(3000)
