@@ -29,11 +29,11 @@ app.post('/', async (req, res) => {
       howToReproduce,
       expectedOutput,
       userAgent,
-      timeNow
+      userDate
     } = req.body;
 
     const doc = new GoogleSpreadSheet(docId)
-    promisify(doc.useServiceAccountAuth)(credentials)
+    await promisify(doc.useServiceAccountAuth)(credentials)
     console.log('Planilha aberta.')
     const info = await promisify(doc.getInfo)()
     const worksheet = info.worksheets[worksheetIndex]
@@ -44,12 +44,14 @@ app.post('/', async (req, res) => {
       howToReproduce,
       expectedOutput,
       userAgent,
-      timeNow,
+      userDate
     })
+
     return res.send('Bug reportado com sucesso.')
   } catch (err) {
-    response.send('Erro ao enviar formulário.')
     console.log(err)
+
+    return res.send('Erro ao enviar formulário.')
   }
 })
 

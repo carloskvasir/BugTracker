@@ -6,7 +6,7 @@
     document.onreadystatechange = () => {
       if(document.readyState === 'interactive') {
         document.getElementById('userAgent').value = window.navigator.userAgent
-        document.getElementById('timeNow').value = new Date()
+        document.getElementById('userDate').value = new Date()
       }
     }
   </script>
@@ -32,7 +32,7 @@
     <input type="text" id="expectedOutput" name="expectedOutput"/>
     
     <input type="hidden" id="userAgent" name="userAgent"/>
-    <input type="hidden" id="timeNow" name="timeNow"/>
+    <input type="hidden" id="userDate" name="userDate"/>
 
     <button>Enviar solicitação</button>
   </form>
