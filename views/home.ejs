@@ -17,7 +17,12 @@
   <p>Preecha todos os dados a seguir</p>
   <form method="post">
     <label for="issueType">Classificação:</label>
-    <input type="text" id="issueType" name="issueType"/>
+    <select id="issueType" name="issueType">
+      <option value="">Selecione...</option>
+      <option value="CRITICAL">Crítico</option>
+      <option value="BUG">Falha</option>
+      <option value="ENHACEMENT">Melhoria</option>
+    </select>
 
     <label for="name">Nome:</label>
     <input type="text" id="name" name="name"/>
