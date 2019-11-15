@@ -63,7 +63,7 @@ app.post('/', async (req, res) => {
       await sgMail.send(msg);
     }
 
-    return res.send('Bug reportado com sucesso.')
+    return res.render('sucess')
   } catch (err) {
     console.log(err)
 
