@@ -48,11 +48,12 @@ app.post('/', async (req, res) => {
     await promisify(worksheet.addRow)({
       name,
       email,
+      userAgent,
       issueType,
       howToReproduce,
       expectedOutput,
-      userAgent,
-      userDate
+      userDate,
+      source: req.query.source || 'direct'
     })
 
     // se for critico mandar email
