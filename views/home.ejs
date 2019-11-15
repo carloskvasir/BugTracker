@@ -1,8 +1,10 @@
 <Html>
+
 <head>
   <title>BugTracker</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" crossorigin="anonymous"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T">
   <script>
     document.onreadystatechange = () => {
       if (document.readyState === 'interactive') {
@@ -24,18 +26,18 @@
     <form method="post">
       <div class="form-group">
         <label for="name">Nome:</label>
-        <input type="text" id="name" name="name" class="form-control"/>
+        <input type="text" id="name" name="name" class="form-control" />
       </div>
 
       <div class="form-group">
         <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" class="form-control"/>
+        <input type="email" id="email" name="email" class="form-control" />
       </div>
 
       <div class="form-group">
         <label for="issueType">Classificação: </label>
-        <select id="issueType" name="issueType" class="form-control">
-          <option value="">Selecione...</option>
+        <select id="issueType" name="issueType" class="form-control" required>
+          <option value="" disabled selected value>Selecione...</option>
           <option value="CRITICAL">Crítico</option>
           <option value="BUG">Falha</option>
           <option value="ENHACEMENT">Melhoria</option>
