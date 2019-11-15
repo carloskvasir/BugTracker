@@ -2,9 +2,12 @@ const express = require('express')
 const GoogleSpreadSheet = require('google-spreadsheet')
 const path = require('path')
 const { promisify } = require('util')
+const sgMail = require('@sendgrid/mail')
 
 const credentials = require('./config/google_api.json')
 const sendgrid_key = require('./config/sendgrid.json')
+sgMail.setApiKey(sendgrid_key.SENDGRID_API_KEY)
+
 const app = express()
 
 //config
@@ -47,6 +50,18 @@ app.post('/', async (req, res) => {
       userAgent,
       userDate
     })
+
+    // se for critico mandar email
+    if (issueType === 'CRITICAL') {
+      const msg = {
+        to: 'span.carloslimajr.eng@gmail.com',
+        from: 'span.carloslimajr.eng@gmail.com',
+        subject: 'Um Bug critíco foi notificado',
+        text: `O usúario ${name} reportou um problema.`,
+        html: `<h2>O usúario ${name} reportou um problema.</h2>`,
+      };
+      await sgMail.send(msg);
+    }
 
     return res.send('Bug reportado com sucesso.')
   } catch (err) {
