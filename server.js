@@ -3,12 +3,16 @@ const GoogleSpreadSheet = require('google-spreadsheet')
 const path = require('path')
 const { promisify } = require('util')
 const sgMail = require('@sendgrid/mail')
+const favicon = require('serve-favicon')
 
 const credentials = require('./config/google_api.json')
 const sendgrid_key = require('./config/sendgrid.json')
 sgMail.setApiKey(sendgrid_key.SENDGRID_API_KEY)
 
 const app = express()
+
+//Favicon
+app.use(favicon(__dirname + '/views/favicon.png'))
 
 //config
 const docId = '18j-MVe4BQcW_MAwBVcoTFbmwcBh2Hon-yTRzn808HLw'
