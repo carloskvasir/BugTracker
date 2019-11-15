@@ -13,6 +13,7 @@ const app = express()
 
 //Favicon
 app.use(favicon(__dirname + '/views/favicon.png'))
+app.use(express.static(__dirname + '/public'))
 
 //config
 const docId = '18j-MVe4BQcW_MAwBVcoTFbmwcBh2Hon-yTRzn808HLw'
