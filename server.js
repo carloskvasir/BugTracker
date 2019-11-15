@@ -4,6 +4,7 @@ const path = require('path')
 const { promisify } = require('util')
 
 const credentials = require('./config/google_api.json')
+const sendgrid_key = require('./config/sendgrid.json')
 const app = express()
 
 //config
