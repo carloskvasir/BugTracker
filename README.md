@@ -36,7 +36,7 @@ Este projeto utiliza as ferramentas abaixo, sendo necessario criar as credenciai
 
 ## Meta
 
-José Carlos de Lima Junior – [@CarlosKvasir](https://br.linkedin.com/in/carlosjrlima) – CarlosKvasir@gmail.com
+José Carlos de Lima Junior – [LinkedIn](https://br.linkedin.com/in/carlosjrlima) – CarlosKvasir@gmail.com
 
 Distribuído sob a licença MPL-2.0. Veja `LICENSE` para mais informações.
 
