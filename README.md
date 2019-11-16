@@ -1,12 +1,20 @@
+![BugTrack logo](./doc_images/bugtracker.png)
 # BugTracker
 
-> Descrição curta sobre o que seu projeto faz.
+> Notifica Bugs e caso sejam críticos envia um email para o responsável.
 
 [![License MGL-2.0][license-image]][license-url]
 
-De um a dois parágrafos sobre o que é seu projeto e o que ele faz.
+Formulário para notificação de bugs, podendo ser colocado respostas esperadas e recebidas.  
+Projeto desenvolvido para para fixar conhecimentos.
 
 ![printscreen da tela principal](./doc_images/screen.png)
+
+## Ferramentas e tecnologias utilizadas
+
+
+## Fullstack Lab
+Este projeto foi feito acompanhando o Fullstack Lab realizado pelo DevPleno em seu canal do [Youtube](https://www.youtube.com/channel/UC07JWf9A0B1scApbS1Te7Ww/).
 
 ## Instalação
 
@@ -20,14 +28,6 @@ Copie o diretorio config_example para config
 cp config_example config
 ```
 
-## Exemplo de uso
-
-Alguns exemplos interessantes e úteis sobre como seu projeto pode ser utilizado. Adicione blocos de códigos e, se necessário, screenshots.
-
-_Para mais exemplos, consulte a [Wiki][wiki]._
-
-## Configuração para Desenvolvimento
-
 Este projeto utiliza as ferramentas abaixo, sendo necessario criar as credenciais e adiciona-las em config...
 
 - Node
@@ -36,11 +36,9 @@ Este projeto utiliza as ferramentas abaixo, sendo necessario criar as credenciai
 
 ## Meta
 
-José Carlos de Lima Junior – [LinkedIn](https://br.linkedin.com/in/carlosjrlima) – CarlosKvasir@gmail.com
+José Carlos de Lima Junior (Kvasir) – [LinkedIn](https://br.linkedin.com/in/carlosjrlima) – CarlosKvasir@gmail.com
 
 Distribuído sob a licença MPL-2.0. Veja `LICENSE` para mais informações.
-
-[https://github.com/CarlosKvasir](https://github.com/CarlosKvasir)
 
 [license-image]: https://img.shields.io/github/license/CarlosKvasir/BugTracker?style=flat-square
 [license-url]: https://www.mozilla.org/en-US/MPL/2.0/
