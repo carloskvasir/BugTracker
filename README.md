@@ -35,9 +35,9 @@ cp config_example config
 
 Este projeto utiliza as ferramentas abaixo, sendo necessario criar as credenciais e adiciona-las em config...
 
-- Node
-- GoogleSpreadSheet API
 - SendGrid
+- GoogleSpreadSheet API
+> Necessario colocar id do document em server.js
 
 ## Meta
 
