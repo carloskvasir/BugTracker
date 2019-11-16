@@ -1,4 +1,5 @@
-![BugTrack logo](./doc_images/bugtracker.png)
+# ![BugTrack logo](./doc_images/bugtracker.png)
+
 > Notifica Bugs e caso sejam críticos envia um email para o responsável.
 
 [![License MGL-2.0][license-image]][license-url]
@@ -37,6 +38,7 @@ Este projeto utiliza as ferramentas abaixo, sendo necessario criar as credenciai
 
 - SendGrid
 - GoogleSpreadSheet API
+
 > Necessario colocar id do document em server.js
 
 ## Meta
