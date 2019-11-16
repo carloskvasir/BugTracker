@@ -43,7 +43,6 @@ app.post('/', async (req, res) => {
 
     const doc = new GoogleSpreadSheet(docId)
     await promisify(doc.useServiceAccountAuth)(credentials)
-    console.log('Planilha aberta.')
     const info = await promisify(doc.getInfo)()
     const worksheet = info.worksheets[worksheetIndex]
     await promisify(worksheet.addRow)({
