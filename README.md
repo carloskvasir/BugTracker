@@ -1,12 +1,10 @@
 ![BugTrack logo](./doc_images/bugtracker.png)
-# BugTracker
-
 > Notifica Bugs e caso sejam críticos envia um email para o responsável.
 
 [![License MGL-2.0][license-image]][license-url]
 
 Formulário para notificação de bugs, podendo ser colocado respostas esperadas e recebidas.  
-Projeto desenvolvido para para fixar conhecimentos.
+Projeto desenvolvido para fixar conhecimentos.
 
 ![printscreen da tela principal](./doc_images/screen.png)
 
