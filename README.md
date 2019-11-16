@@ -10,8 +10,15 @@ Projeto desenvolvido para fixar conhecimentos.
 
 ## Ferramentas e tecnologias utilizadas
 
+- Node (v13.1.0)
+- express (4.17.1)
+- ejs
+- Sendgrid
+- google-spreadsheet
+- serve-favicon
 
 ## Fullstack Lab
+
 Este projeto foi feito acompanhando o Fullstack Lab realizado pelo DevPleno em seu canal do [Youtube](https://www.youtube.com/channel/UC07JWf9A0B1scApbS1Te7Ww/).
 
 ## Instalação
