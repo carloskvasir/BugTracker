@@ -1,29 +1,26 @@
 {
-  "name": "bugtracker",
-  "version": "1.0.0",
-  "main": "server.js",
-  "repository": "git@github.com:CarlosKvasir/bugTracker.git",
-  "author": "Carlos Lima (Kvasir) <carloskvasir@gmail.com>",
-  "license": "MPL-2.0",
-  "private": false,
-  "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon"
-  },
-  "dependencies": {
-    "@sendgrid/mail": "^6.4.0",
-    "ejs": "^2.7.1",
-    "express": "^4.17.1",
-    "google-spreadsheet": "^2.0.8",
-    "serve-favicon": "^2.5.0"
-  },
-  "devDependencies": {
-    "eslint": "^6.6.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "2.18.2",
-    "nodemon": "^1.19.4"
-  },
-  "engines": {
-    "node": ">=0.10.3 <0.12"
-  }
+	"name": "bugtracker",
+	"version": "1.0.0",
+	"main": "server.js",
+	"repository": "git@github.com:CarlosKvasir/bugTracker.git",
+	"author": "Carlos Lima (Kvasir) <carloskvasir@gmail.com>",
+	"license": "MPL-2.0",
+	"private": false,
+	"scripts": {
+		"start": "node server.js",
+		"dev": "nodemon"
+	},
+	"dependencies": {
+		"@sendgrid/mail": "^6.4.0",
+		"ejs": "^2.7.1",
+		"express": "^4.17.1",
+		"google-spreadsheet": "^2.0.8",
+		"serve-favicon": "^2.5.0"
+	},
+	"devDependencies": {
+		"eslint": "^6.6.0",
+		"eslint-config-airbnb-base": "^14.0.0",
+		"eslint-plugin-import": "2.18.2",
+		"nodemon": "^1.19.4"
+	}
 }
