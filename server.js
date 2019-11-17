@@ -7,6 +7,7 @@ const favicon = require('serve-favicon');
 
 const credentials = require('./config/google_api.json');
 const sendgridKey = require('./config/sendgrid.json');
+const spreadSheetConfig = require('./config/spreadSheetConfigs.json');
 
 sgMail.setApiKey(sendgridKey.SENDGRID_API_KEY);
 
@@ -15,10 +16,6 @@ const app = express();
 // Favicon
 app.use(favicon(`${__dirname}/views/favicon.png`));
 app.use(express.static(`${__dirname}/public`));
-
-// config
-const docId = '18j-MVe4BQcW_MAwBVcoTFbmwcBh2Hon-yTRzn808HLw';
-const worksheetIndex = 0;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -42,10 +39,10 @@ app.post('/', async (req, res) => {
       userDate,
     } = req.body;
 
-    const doc = new GoogleSpreadSheet(docId);
+    const doc = new GoogleSpreadSheet(spreadSheetConfig.docId);
     await promisify(doc.useServiceAccountAuth)(credentials);
     const info = await promisify(doc.getInfo)();
-    const worksheet = info.worksheets[worksheetIndex];
+    const worksheet = info.worksheets[spreadSheetConfig.worksheetIndex];
     await promisify(worksheet.addRow)({
       name,
       email,
