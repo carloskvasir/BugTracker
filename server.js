@@ -1,33 +1,34 @@
-const express = require('express')
-const GoogleSpreadSheet = require('google-spreadsheet')
-const path = require('path')
-const { promisify } = require('util')
-const sgMail = require('@sendgrid/mail')
-const favicon = require('serve-favicon')
+const express = require('express');
+const GoogleSpreadSheet = require('google-spreadsheet');
+const path = require('path');
+const { promisify } = require('util');
+const sgMail = require('@sendgrid/mail');
+const favicon = require('serve-favicon');
 
-const credentials = require('./config/google_api.json')
-const sendgrid_key = require('./config/sendgrid.json')
-sgMail.setApiKey(sendgrid_key.SENDGRID_API_KEY)
+const credentials = require('./config/google_api.json');
+const sendgridKey = require('./config/sendgrid.json');
 
-const app = express()
+sgMail.setApiKey(sendgridKey.SENDGRID_API_KEY);
 
-//Favicon
-app.use(favicon(__dirname + '/views/favicon.png'))
-app.use(express.static(__dirname + '/public'))
+const app = express();
 
-//config
-const docId = '18j-MVe4BQcW_MAwBVcoTFbmwcBh2Hon-yTRzn808HLw'
-const worksheetIndex = 0
+// Favicon
+app.use(favicon(`${__dirname}/views/favicon.png`));
+app.use(express.static(`${__dirname}/public`));
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+// config
+const docId = '18j-MVe4BQcW_MAwBVcoTFbmwcBh2Hon-yTRzn808HLw';
+const worksheetIndex = 0;
 
-app.set('view engine', 'ejs')
-app.set('views', path.resolve(__dirname, 'views'))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.set('view engine', 'ejs');
+app.set('views', path.resolve(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-  res.render('home')
-})
+  res.render('home');
+});
 
 app.post('/', async (req, res) => {
   try {
@@ -38,13 +39,13 @@ app.post('/', async (req, res) => {
       howToReproduce,
       expectedOutput,
       userAgent,
-      userDate
+      userDate,
     } = req.body;
 
-    const doc = new GoogleSpreadSheet(docId)
-    await promisify(doc.useServiceAccountAuth)(credentials)
-    const info = await promisify(doc.getInfo)()
-    const worksheet = info.worksheets[worksheetIndex]
+    const doc = new GoogleSpreadSheet(docId);
+    await promisify(doc.useServiceAccountAuth)(credentials);
+    const info = await promisify(doc.getInfo)();
+    const worksheet = info.worksheets[worksheetIndex];
     await promisify(worksheet.addRow)({
       name,
       email,
@@ -53,8 +54,8 @@ app.post('/', async (req, res) => {
       howToReproduce,
       expectedOutput,
       userDate,
-      source: req.query.source || 'direct'
-    })
+      source: req.query.source || 'direct',
+    });
 
     // se for critico mandar email
     if (issueType === 'CRITICAL') {
@@ -68,12 +69,12 @@ app.post('/', async (req, res) => {
       await sgMail.send(msg);
     }
 
-    return res.render('sucess')
+    return res.render('sucess');
   } catch (err) {
-    console.log(err)
+    // console.log(err);
 
-    return res.send('Erro ao enviar formulário.')
+    return res.send('Erro ao enviar formulário.');
   }
-})
+});
 
-app.listen(3000)
+app.listen(3000);
