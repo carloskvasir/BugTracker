@@ -39,8 +39,6 @@ Este projeto utiliza as ferramentas abaixo, sendo necessario criar as credenciai
 - SendGrid
 - GoogleSpreadSheet API
 
-> Necessario colocar id do document em server.js
-
 ## Meta
 
 José Carlos de Lima Junior (Kvasir) – [LinkedIn](https://br.linkedin.com/in/carlosjrlima) – CarlosKvasir@gmail.com
